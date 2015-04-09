@@ -18,7 +18,7 @@ Triggers an event and executes any callbacks registered with it.  Optionally sup
 
 
 ```js
-AVBCEvent.dequeue( event )
+AVBCEvent.dequeue( event );
 ```
 Completely remove an event and any registered callbacks from the queue
 
