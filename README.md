@@ -4,9 +4,23 @@ This is just a very, very simple Event Queue written for Javascript.  This uses 
 
 ### Available Methods
 
-    AVBCEvent.on - Registers a callback to be executed for a given event.  When dequeueAfter is true, the callback will be executed only the first time this even is triggered (otherwise, it is called everytime)
-    AVBCEvent.trigger - Triggers an event
-    AVBCEvent.dequeue - Remove all listeners for a given event and removes it as a valid event completely
+```js
+AVBCEvent.on( event, callback, dequeueAfter );
+```
+Registers a callback to be executed for a given event.  When dequeueAfter is true, the callback will be executed 
+only the first time this even is triggered (otherwise, it is called everytime)
+
+
+```js
+AVBCEvent.trigger( event, arg1,... );
+```
+Triggers an event and executes any callbacks registered with it.  Optionally supply parameters to be passed along with each callback.
+
+
+```js
+AVBCEvent.dequeue( event )
+```
+Completely remove an event and any registered callbacks from the queue
 
 
 ### Basic Usage
