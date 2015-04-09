@@ -2,6 +2,11 @@
 
 This is just a very, very simple Event Queue written for Javascript.  This uses native methods and should be cross-browser compatiable (thought I must admist I haven't tested it in anything aside from Chrome =)).
 
+### Available Methods
+
+    AVBCEvent.on
+
+
 
 ### Basic Usage
 
