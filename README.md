@@ -4,8 +4,9 @@ This is just a very, very simple Event Queue written for Javascript.  This uses 
 
 ### Available Methods
 
-    AVBCEvent.on
-
+    AVBCEvent.on - Registers a callback to be executed for a given event.  When dequeueAfter is true, the callback will be executed only the first time this even is triggered (otherwise, it is called everytime)
+    AVBCEvent.trigger - Triggers an event
+    AVBCEvent.dequeue - Remove all listeners for a given event and removes it as a valid event completely
 
 
 ### Basic Usage
@@ -22,11 +23,12 @@ AVBCEvent.on( 'customEvent', function( data ) {
 Later on, you can trigger this event (as many times as you like) and have the above registered callback (and any other callback registered to this event) executed each time it is triggered.
 
 ```js
+// Trigger the "customEvent" without passing any data to any registered callbacks
 AVBCEvent.trigger( 'customEvent' );
 // []
 // customEvent was triggered!
 
-
+// Trigger the "customEvent" and pass some random data to any registered callbacks
 AVBCEvent.trigger( 'customEvent', 'someData', ['some', 'other', 'data'], { yet: 'even', more: 'data!' } );  // Trigger with data
 // ["someData", Array[3], Object]
 // customEvent was triggered!
