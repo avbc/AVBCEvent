@@ -1,6 +1,6 @@
 # AVBCEvent
 
-This is just a very, very simple Event Queue written for Javascript.  This uses native methods and should be cross-browser compatiable (thought I must admist I haven't tested it in anything aside from Chrome =)).
+This is just a very, very simple Event Queue written for Javascript.  This uses native methods and should be cross-browser compatiable (thought I must admist I haven't tested it in anything aside from Chrome =)).  Currently, all callbacks are executed FIFO - a more asynchronous(ish) approach will be something solved in the future.
 
 ### Available Methods
 
