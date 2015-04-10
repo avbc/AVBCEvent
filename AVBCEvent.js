@@ -73,7 +73,7 @@
         for( i = 0; i < queue.length; i++ ) {
             enqueuedItem = queue[i];
 
-            enqueuedItem.callback( args );
+            enqueuedItem.callback( args.slice() );
 
             if( !!enqueuedItem.dequeueAfter ) {
                 queue.splice( i, 1 );
@@ -100,7 +100,7 @@
 
         // If this event has already been triggered then execute the callback immediately
         if( AVBCEventProcessed[event].wasTriggered ) {
-            callback( self.AVBCEventProcessed[event].callbackArgs );
+            callback( self.AVBCEventProcessed[event].callbackArgs.slice() );
 
             // bypass enqueing this callback to this event and execute the callback
             if( !!dequeueAfter ) {
