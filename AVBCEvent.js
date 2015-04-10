@@ -74,7 +74,7 @@
         for( i = 0; i < listenerCount; i++ ) {
             enqueuedItem = queue[i];
 
-            enqueuedItem.callback( args );
+            enqueuedItem['callback']( args );
 
             if( !!enqueuedItem.dequeueAfter ) {
                 queue.splice( i, 1 );
