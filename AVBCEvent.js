@@ -126,4 +126,10 @@
             delete self.AVBCEventProcessed[event];
         }
     };
+
+    // Completely remove all events (queued and processed)
+    AVBCEvent.drainPool = function() {
+        self.AVBCEventQueue = [];
+        self.AVBCEventProcessed = [];
+    };
 }).call( this );
