@@ -8,8 +8,7 @@ This is just a very, very simple Event Queue written for Javascript.  This uses 
 AVBCEvent.on( event, callback, dequeueAfter );
 ```
 Registers a callback to be executed for a given event.  When dequeueAfter is true, the callback will be executed 
-only the first time this even is triggered (otherwise, it is called everytime)
-
+only the first time this event is triggered (otherwise, it is called everytime)
 
 ```js
 AVBCEvent.trigger( event, arg1,... );
@@ -57,7 +56,7 @@ AVBCEvent.trigger( 'customEvent', 'someData', ['some', 'other', 'data'], { yet: 
 Rather than having a callback be executed everytime our custom event is triggered, instead we can just have it removed from the event's callback list.  This way, our callback is executed once ever.
 
 >> NOTE: While it is true that this callback will be executed once ever for a given event, you should be aware that
->> if the even has already been executed, the callback will be immediatley executed and the previous data (if any)
+>> if the event has already been executed, the callback will be immediatley executed and the previous data (if any)
 >> will be supplied.
 
 ```js
