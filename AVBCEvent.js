@@ -1,5 +1,4 @@
 /*!
- * @author Jonathon Hibbard
  * A very, very simple Event Queue
  *
  * The MIT License (MIT)
