@@ -4,17 +4,22 @@ This is just a very, very simple Event Queue written for Javascript.  This uses 
 
 ### Methods
 
+<a name="$-avbceventon"></a>
 `AVBCEvent.on( event, callback, dequeueAfter )` registers a callback to be executed for a given event.  When dequeueAfter is true, the callback will be executed 
 only the first time this event is triggered (otherwise, it is called everytime)
 
 
+<a name="$-avbceventtrigger"></a>
 `AVBCEvent.trigger( event, arg1,... )` triggers an event and executes any callbacks registered with it.  Optionally supply parameters to be passed along with each callback.
 
 
+<a name="$-avbceventdequeue"></a>
 `AVBCEvent.dequeue( event )` completely removes an event and any registered callbacks from the queue
 
 
+<a name="$-avbceventdrainpool"></a>
 `AVBCEvent.drainPool()` completely removes **all** events (queued and processed).
+
 
 ### Basic Usage
 
