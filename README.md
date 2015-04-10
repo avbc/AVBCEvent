@@ -23,6 +23,11 @@ AVBCEvent.dequeue( event );
 Completely remove an event and any registered callbacks from the queue
 
 
+```js
+AVBCEvent.drainPool();
+```;
+Completely remove all events (queued and processed).
+
 ### Basic Usage
 
 This simple example shows how to add a simple listener to a custom event named *customEvent*.
