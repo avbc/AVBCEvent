@@ -25,7 +25,7 @@ Completely remove an event and any registered callbacks from the queue
 
 ```js
 AVBCEvent.drainPool();
-```;
+```
 Completely remove all events (queued and processed).
 
 ### Basic Usage
