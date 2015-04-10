@@ -2,30 +2,19 @@
 
 This is just a very, very simple Event Queue written for Javascript.  This uses native methods and should be cross-browser compatiable (thought I must admist I haven't tested it in anything aside from Chrome =)).  Currently, all callbacks are executed FIFO - a more asynchronous(ish) approach will be something solved in the future.
 
-### Available Methods
+### Methods
 
-```js
-AVBCEvent.on( event, callback, dequeueAfter );
-```
-Registers a callback to be executed for a given event.  When dequeueAfter is true, the callback will be executed 
+`AVBCEvent.on( event, callback, dequeueAfter )` registers a callback to be executed for a given event.  When dequeueAfter is true, the callback will be executed 
 only the first time this event is triggered (otherwise, it is called everytime)
 
-```js
-AVBCEvent.trigger( event, arg1,... );
-```
-Triggers an event and executes any callbacks registered with it.  Optionally supply parameters to be passed along with each callback.
+
+`AVBCEvent.trigger( event, arg1,... )` triggers an event and executes any callbacks registered with it.  Optionally supply parameters to be passed along with each callback.
 
 
-```js
-AVBCEvent.dequeue( event );
-```
-Completely remove an event and any registered callbacks from the queue
+`AVBCEvent.dequeue( event )` completely removes an event and any registered callbacks from the queue
 
 
-```js
-AVBCEvent.drainPool();
-```
-Completely remove all events (queued and processed).
+`AVBCEvent.drainPool()` completely removes **all** events (queued and processed).
 
 ### Basic Usage
 
