@@ -64,8 +64,13 @@
         var args, i, listenerCount, enqueuedItem;
 
         if( typeof queue === 'undefined' ) {
-            // nothing to do if this event doesn't exist in the queue
-            return;
+            // if this event doesn't exist in the queue, then at least track what it contains just in case it is being triggered before anyone has a chance to listen to it.
+            self.AVBCEventQueue[event] = [];
+            queue = self.AVBCEventQueue[event];
+        }
+
+        if( typeof self.AVBCEventProcessed[event] === 'undefined' ) {
+            self.AVBCEventProcessed[event] = Object.create( processedEventDefaults );
         }
 
         args = Array.prototype.slice.call( arguments, 1 );
@@ -73,7 +78,7 @@
         for( i = 0; i < queue.length; i++ ) {
             enqueuedItem = queue[i];
 
-            enqueuedItem.callback( args.slice() );
+            enqueuedItem.callback( args );
 
             if( !!enqueuedItem.dequeueAfter ) {
                 queue.splice( i, 1 );
@@ -100,7 +105,8 @@
 
         // If this event has already been triggered then execute the callback immediately
         if( AVBCEventProcessed[event].wasTriggered ) {
-            callback( self.AVBCEventProcessed[event].callbackArgs.slice() );
+            // return a copy just in case this event (or its processed copy) is dequeued/removed
+            callback( Array.prototype.slice.call( self.AVBCEventProcessed[event].callbackArgs ) );
 
             // bypass enqueing this callback to this event and execute the callback
             if( !!dequeueAfter ) {
