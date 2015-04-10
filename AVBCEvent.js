@@ -69,12 +69,11 @@
         }
 
         args = Array.prototype.slice.call( arguments, 1 );
-        listenerCount = queue.length;
 
-        for( i = 0; i < listenerCount; i++ ) {
+        for( i = 0; i < queue.length; i++ ) {
             enqueuedItem = queue[i];
 
-            enqueuedItem['callback']( args );
+            enqueuedItem.callback( args );
 
             if( !!enqueuedItem.dequeueAfter ) {
                 queue.splice( i, 1 );
